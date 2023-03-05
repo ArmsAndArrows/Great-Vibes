@@ -54,15 +54,15 @@
 
         &--1 {
             background-image: linear-gradient(125deg, rgba($color-cream-white, 0.8), rgba($color-yellow, 0.8)),
-                url(/assets/pic-classic.jpg);
+                url(../assets/pic-classic.jpg);
         }
         &--2 {
             background-image: linear-gradient(125deg, rgba($color-yellow, 0.8), rgba($color-orange, 0.8)),
-                url(/assets/pic-modern.jpg);
+                url(../assets/pic-modern.jpg);
         }
         &--3 {
             background-image: linear-gradient(125deg, rgba($color-orange, 0.8), rgba($color-red, 0.8)),
-                url(/assets/pic-future.jpg);
+                url(../assets/pic-future.jpg);
         }
     }
 
