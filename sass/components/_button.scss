@@ -1,0 +1,81 @@
+.btn {
+  &,
+  &:link,
+  &:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1rem 6rem;
+    display: inline-block;
+    border-radius: 10rem;
+    transition: all 0.2s;
+    position: relative;
+    animation: moveUp;
+    animation-duration: 1.6s;
+    animation-delay: 0.7s;
+    animation-fill-mode: backwards;
+    font-size: 1.6rem;
+    cursor: pointer;
+  }
+
+  &:hover {
+    transform: translateY(-0.3em);
+    box-shadow: 0 5px 10px $color-button-shadow-red;
+    color: black;
+    &::before {
+      transform: scaleX(1.3) scaleY(1.6);
+      opacity: 0;
+    }
+  }
+  &:active {
+    outline: none;
+    transform: translateY(-0.1em);
+    color: $color-button-shadow-red;
+  }
+
+  &--white {
+    background-color: $color-white;
+    color: $color-gray;
+  }
+  &--orange {
+    background-color: $color-primary;
+    color: $color-white;
+  }
+
+  &::before {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    background-color: inherit;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 10rem;
+    transition: all 0.4s;
+    z-index: -1;
+  }
+}
+
+.btn-text {
+  &:link,
+  &:visited {
+    font-size: $default-font-size;
+    color: $color-primary;
+    display: inline-block;
+    text-decoration: none;
+    border-bottom: 1px solid $color-primary;
+    padding: 10px;
+    transition: all 0.2s;
+  }
+  &:hover {
+    background-color: $color-primary;
+    color: $color-white;
+    transform: translateY(-3px);
+    border-radius: 1rem;
+    box-shadow: 0 2rem 1rem rgba($color-darkgray, 0.7);
+  }
+  &:active {
+    transform: translateY(-1px);
+    box-shadow: 0 1rem 0.5rem rgba($color-darkgray, 0.7);
+  }
+}

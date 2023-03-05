@@ -1,0 +1,157 @@
+.navigation {
+    position: relative;
+    &__checkbox {
+        display: none;
+    }
+    &__button {
+        border-radius: 50%;
+        height: 8.5rem;
+        width: 8.5rem;
+        background-color: $color-white;
+        position: fixed;
+        top: 6.5rem;
+        right: 6.5rem;
+        z-index: 112;
+        box-shadow: 0 1rem 3rem rgba($color-darkgray, 0.1);
+        text-align: center;
+        cursor: pointer;
+        @include respond(tab-port) {
+            top: 4.5rem;
+            right: 4.5rem;
+        }
+        @include respond(phone) {
+            top: 3.5rem;
+            right: 3.5rem;
+        }
+    }
+
+    &__background {
+        height: 7.6rem;
+        width: 7.6rem;
+        border-radius: 50%;
+        background-image: radial-gradient($color-darkgray 50%, $color-secondary 90%);
+        position: fixed;
+        top: 7rem;
+        right: 7rem;
+        z-index: 110;
+        transition: all 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+        @include respond(tab-port) {
+            top: 5rem;
+            right: 5rem;
+        }
+        @include respond(phone) {
+            top: 4rem;
+            right: 4rem;
+        }
+    }
+    &__nav {
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        right: 0;
+        z-index: 111;
+        opacity: 0;
+        width: 0;
+        transition: all 0.7s;
+    }
+    &__list {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        list-style: none;
+        text-align: center;
+    }
+    &__item {
+        margin: 1rem;
+    }
+    &__link {
+        &--text-gradient {
+            background: linear-gradient(90deg, rgba($color-orange, 1) 10%, rgba($color-primary, 1));
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            &:hover {
+                background: linear-gradient(180deg, rgba($color-orange, 1) 10%, rgba($color-primary, 1));
+                background-clip: text;
+                -webkit-background-clip: text;
+                color: transparent;
+            }
+        }
+        &:link,
+        &:visited {
+            display: inline-block;
+            padding: 1rem 2rem;
+            font-size: 3.5rem;
+            font-weight: 300;
+            text-decoration: none;
+            transform: translate(uppercase);
+            background-image: linear-gradient(120deg, transparent 0%, transparent 50%, rgba($color-secondary, 0.3) 50%);
+            background-size: 230%;
+            transition: all 0.7s;
+            &:active {
+                background-color: $color-white;
+            }
+        }
+        &:hover,
+        &:active {
+            background-position: 100%;
+            transform: translateX(2rem);
+            backface-visibility: hidden;
+        }
+    }
+    &__checkbox:checked ~ &__background {
+        transform: scale(80);
+    }
+    &__checkbox:checked ~ &__nav {
+        opacity: 1;
+        width: 100%;
+    }
+
+    &__icon {
+        position: relative;
+        margin-top: 4.3rem;
+
+        &,
+        &::before,
+        &::after {
+            width: 3rem;
+            height: 2px;
+            background-color: $color-darkgray;
+            display: inline-block;
+        }
+        &::before,
+        &::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            transition: all 0.2s;
+        }
+        &::before {
+            top: -1rem;
+        }
+        &::after {
+            top: 1rem;
+        }
+    }
+    &__button:hover &__icon {
+        &::before {
+            top: -1.2rem;
+        }
+        &::after {
+            top: 1.2rem;
+        }
+    }
+    &__checkbox:checked + &__button &__icon {
+        background-color: transparent;
+    }
+
+    &__checkbox:checked + &__button &__icon::before {
+        top: 0;
+        transform: rotate(45deg);
+    }
+    &__checkbox:checked + &__button &__icon::after {
+        top: 0;
+        transform: rotate(-45deg);
+    }
+}

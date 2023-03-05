@@ -1,0 +1,186 @@
+.card {
+    perspective: 150rem;
+    -moz-perspective: 150rem;
+    position: relative;
+    height: 60rem;
+
+    &__side {
+        height: 60rem;
+        transition: all 1s;
+        width: 100%;
+        position: absolute;
+        left: 0;
+        right: 0;
+        backface-visibility: hidden;
+        box-shadow: 0 2rem 3rem rgba($color-white, $alpha: 0.1);
+        border-radius: 1rem;
+        overflow: hidden;
+
+        &--front {
+            background-color: rgba($color-darkgray, 0.3);
+        }
+        &--back {
+            background-color: red;
+            transform: rotateY(180deg);
+            &-1 {
+                background-image: linear-gradient(125deg, $color-cream-white, $color-yellow);
+                .card__price-value {
+                    color: rgba($color-darkgray, 0.9);
+                }
+            }
+            &-2 {
+                background-image: linear-gradient(125deg, $color-yellow, $color-orange);
+                .card__price-value {
+                    color: rgba($color-darkgray, 0.5);
+                }
+            }
+            &-3 {
+                background-image: linear-gradient(125deg, $color-orange, $color-red);
+            }
+        }
+    }
+    &:hover &__side--front {
+        transform: rotateY(-180deg);
+    }
+    &:hover &__side--back {
+        transform: rotateY(0);
+    }
+
+    &__picture {
+        background-size: cover;
+        height: 25rem;
+        background-blend-mode: multiply;
+        clip-path: polygon(0 0, 100% 0, 100% 78%, 0 100%);
+
+        &--1 {
+            background-image: linear-gradient(125deg, rgba($color-cream-white, 0.8), rgba($color-yellow, 0.8)),
+                url(/assets/pic-classic.jpg);
+        }
+        &--2 {
+            background-image: linear-gradient(125deg, rgba($color-yellow, 0.8), rgba($color-orange, 0.8)),
+                url(/assets/pic-modern.jpg);
+        }
+        &--3 {
+            background-image: linear-gradient(125deg, rgba($color-orange, 0.8), rgba($color-red, 0.8)),
+                url(/assets/pic-future.jpg);
+        }
+    }
+
+    &__heading {
+        font-size: 4rem;
+        font-weight: 400;
+        text-transform: uppercase;
+        text-align: right;
+        -webkit-text-stroke: 1px rgba($color-darkgray, 0.5);
+        color: $color-white;
+        position: absolute;
+        top: 18rem;
+        right: 2rem;
+        width: 75%;
+    }
+    &__heading-span {
+        padding: 1rem;
+        &--1 {
+            background-image: linear-gradient(125deg, rgba($color-cream-white, 0.7), rgba($color-yellow, 0.7));
+        }
+        &--2 {
+            background-image: linear-gradient(125deg, rgba($color-yellow, 0.7), rgba($color-orange, 0.7));
+        }
+        &--3 {
+            background-image: linear-gradient(125deg, rgba($color-orange, 0.7), rgba($color-red, 0.7));
+        }
+    }
+    &__details {
+        padding: 3rem;
+        ul {
+            list-style-type: none;
+            width: 80%;
+            margin: 0 auto;
+            li {
+                padding: 2rem;
+                text-align: center;
+                padding: 1rem;
+                font-size: 2rem;
+            }
+        }
+    }
+    &__cta {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+
+        transform: translate(-50%, -50%);
+        padding: 2rem;
+        width: 90%;
+        text-align: center;
+    }
+    &__price-box {
+        text-align: center;
+        margin-bottom: 12rem;
+    }
+
+    &__price-only {
+        font-size: 2rem;
+        text-transform: uppercase;
+        color: $color-darkgray;
+    }
+    &__price-value {
+        font-size: 10rem;
+        font-weight: 200;
+        color: $color-white;
+        border-radius: 1rem;
+    }
+
+    @include respond(tab-port) {
+        height: 82rem;
+        border-radius: 2rem;
+        border-top-left-radius: 15rem;
+        border-bottom-right-radius: 15rem;
+        overflow: hidden;
+
+        box-shadow: 0 1rem 4rem rgba($color-white, $alpha: 0.1);
+
+        &__side {
+            height: auto;
+
+            position: relative;
+            transition: none;
+
+            border-radius: 0rem;
+            box-shadow: none;
+
+            &--back {
+                transform: rotateY(0);
+                border-bottom-left-radius: 2rem;
+                border-bottom-right-radius: 15rem;
+                clip-path: polygon(0 30%, 100% 0, 100% 100%, 0 100%);
+                padding: 1rem 0;
+            }
+        }
+        &:hover &__side--front {
+            transform: rotateY(0);
+        }
+
+        &__cta {
+            position: relative;
+            height: 20rem;
+
+            transform: translate(-50%, -50%);
+            padding: 0;
+            margin-top: 4rem;
+
+            width: 100%;
+        }
+        &__price-box {
+            margin-bottom: 0rem;
+        }
+
+        &__price-value {
+            margin-top: 6rem;
+            font-size: 7rem;
+            font-weight: 200;
+            color: $color-white;
+            border-radius: 1rem;
+        }
+    }
+}

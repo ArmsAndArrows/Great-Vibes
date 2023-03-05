@@ -1,0 +1,91 @@
+.footer {
+    background-color: $color-darkgray;
+    padding: 8rem 0;
+    font-size: 1.5rem;
+
+    @include respond(tab-port) {
+        padding: 5rem 0;
+    }
+
+    &__logo-box {
+        text-align: center;
+        margin-bottom: 12rem;
+        @include respond(tab-port) {
+            margin-bottom: 6rem;
+        }
+    }
+    &__logo {
+        width: 12rem;
+        height: auto;
+        filter: hue-rotate(20deg);
+        background-image: linear-gradient(90deg, $color-orange, $color-red);
+        border-radius: 50%;
+        transition: all 1s;
+        &:hover {
+            transform: scale(1.1);
+            filter: hue-rotate(80deg);
+        }
+    }
+    &__navigation {
+        border-top: 1px solid $color-orange;
+        padding-top: 2rem;
+        display: inline-block;
+        @include respond(tab-port) {
+            width: 100%;
+            text-align: center;
+        }
+    }
+    &__list {
+        list-style-type: none;
+    }
+
+    &__item {
+        display: inline-block;
+        transition: all 0.3s;
+
+        &:not(:last-child) {
+            margin-right: 1.7rem;
+        }
+        &:nth-child(odd):hover {
+            transform: rotate(-15deg);
+        }
+        &:nth-child(even):hover {
+            transform: rotate(15deg);
+        }
+    }
+    &__link {
+        &:link,
+        &:visited {
+            backface-visibility: hidden;
+            color: $color-cream-white;
+            text-decoration: none;
+            text-transform: uppercase;
+            display: inline-block;
+            transition: all 0.5s;
+            padding: 0.5rem 0rem;
+        }
+
+        &:hover,
+        &:active {
+            background-color: $color-darkgray;
+            color: $color-orange;
+            box-shadow: 0 1rem 2.3rem rgba($color-darkgray, 0.6);
+            transform: scale(1.2);
+        }
+    }
+
+    &__copyright {
+        font-size: inherit;
+        text-align: center;
+        border-top: 1px solid $color-orange;
+        padding-top: 2rem;
+        width: 83%;
+        float: right;
+        @include respond(tab-port) {
+            float: none;
+            width: 100%;
+            text-align: center;
+            padding-top: 1rem;
+        }
+    }
+}

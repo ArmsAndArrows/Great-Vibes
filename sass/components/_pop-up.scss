@@ -1,0 +1,92 @@
+.pop-up {
+    background-color: rgba($color-secondary, 0.85);
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 25;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s;
+    &:target {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    &:target &__content {
+        transform: translate(-50%, -50%) scale(1);
+        transition: all 0.2s;
+        opacity: 1;
+    }
+    &__close {
+        &:link,
+        &:visited {
+            color: rgba($color-secondary, 0.85);
+            position: absolute;
+            top: 2.5rem;
+            right: 4.5rem;
+            font-size: 3rem;
+            display: inline-block;
+            text-decoration: none;
+            transition: all 0.22s;
+        }
+        &:hover {
+            color: $color-red;
+        }
+    }
+
+    &__content {
+        width: 74%;
+        position: absolute;
+        display: inline-block;
+        background-color: $color-darkgray;
+        box-shadow: 0 2rem 3rem rgba($color-darkgray, 0.24);
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0.25);
+        border-radius: 3px;
+        overflow: hidden;
+        display: table;
+        opacity: 0;
+        transition: all 0.2s;
+    }
+    &__left {
+        width: 33.3333%;
+        display: table-cell;
+        @include respond(tab-land) {
+            width: 100%;
+            display: block;
+        }
+    }
+
+    &__right {
+        width: 66.666667%;
+        display: table-cell;
+        vertical-align: middle;
+        padding: 3rem 6rem;
+        @include respond(tab-land) {
+            width: 100%;
+            display: block;
+        }
+    }
+
+    &__img {
+        display: block;
+        width: 100%;
+        @include respond(tab-land) {
+            width: 50%;
+            display: inline-block;
+        }
+    }
+    &__text {
+        font-size: 1.5rem;
+        margin-bottom: 4rem;
+        column-count: 2;
+        column-gap: 5rem;
+        hyphens: auto;
+        @include respond(phone) {
+            column-count: 1;
+        }
+    }
+}

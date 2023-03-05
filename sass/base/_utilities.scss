@@ -1,0 +1,34 @@
+.u-center-text {
+    text-align: center !important;
+}
+
+.u-margin-bottom-lg {
+    margin-bottom: 8rem !important;
+    @include respond(tab-port) {
+        margin-bottom: 6rem !important;
+    }
+}
+
+.u-margin-bottom-md {
+    margin-bottom: 4rem !important;
+    @include respond(tab-port) {
+        margin-bottom: 3rem !important;
+    }
+}
+
+.u-margin-bottom-sm {
+    margin-bottom: 1.5rem !important;
+}
+
+.u-margin-top-huge {
+    margin-top: 11rem !important;
+}
+
+.u-margin-top-med {
+    margin-top: 6rem !important;
+}
+
+.u-background-text-shadow {
+    background-color: rgba($color-darkgray, 0.5) !important;
+    border-radius: 5px !important;
+}
